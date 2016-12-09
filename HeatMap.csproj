@@ -40,19 +40,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
-      <HintPath>packages\MapSuiteDependency-GeoAPI.10.0.0.0\lib\net40-client\GeoAPI.dll</HintPath>
+      <HintPath>packages\MapSuiteDependency-GeoAPI.10.0.0\lib\net45\GeoAPI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\MapSuiteDependency-MicrosoftSqlServerTypes.10.0.0\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>packages\MapSuiteDependency-MicrosoftSqlServerTypes.10.0.0\lib\net45\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NetTopologySuite, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
-      <HintPath>packages\MapSuiteDependency-NetTopologySuite.10.0.0.0\lib\net40-client\NetTopologySuite.dll</HintPath>
+      <HintPath>packages\MapSuiteDependency-NetTopologySuite.10.0.0\lib\net45\NetTopologySuite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
-      <HintPath>packages\MapSuiteDependency-NetTopologySuite.10.0.0.0\lib\net40-client\PowerCollections.dll</HintPath>
+      <HintPath>packages\MapSuiteDependency-NetTopologySuite.10.0.0\lib\net45\PowerCollections.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -71,19 +71,19 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="ThinkGeo.MapSuite, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ThinkGeo.MapSuite.10.0.328.1\lib\net40\ThinkGeo.MapSuite.dll</HintPath>
+      <HintPath>packages\ThinkGeo.MapSuite.10.0.344.6\lib\net45\ThinkGeo.MapSuite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite.Layers.Heat, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ThinkGeo.MapSuite.Layers.Heat.10.0.328.1\lib\net40\ThinkGeo.MapSuite.Layers.Heat.dll</HintPath>
+      <HintPath>packages\ThinkGeo.MapSuite.Layers.Heat.10.0.344.6\lib\net45\ThinkGeo.MapSuite.Layers.Heat.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite.Layers.ShapeFile, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ThinkGeo.MapSuite.Layers.ShapeFile.10.0.328.1\lib\net40\ThinkGeo.MapSuite.Layers.ShapeFile.dll</HintPath>
+      <HintPath>packages\ThinkGeo.MapSuite.Layers.ShapeFile.10.0.344.6\lib\net45\ThinkGeo.MapSuite.Layers.ShapeFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite.WinForms, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MapSuiteDesktopForWinForms-BareBone.10.0.328.1\lib\net40\ThinkGeo.MapSuite.WinForms.dll</HintPath>
+      <HintPath>packages\MapSuiteDesktopForWinForms-BareBone.10.0.344.6\lib\net45\ThinkGeo.MapSuite.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase">
