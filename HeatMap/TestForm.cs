@@ -27,7 +27,7 @@ namespace  HeatMap
             WorldMapKitWmsDesktopOverlay worldMapKitDesktopOverlay = new WorldMapKitWmsDesktopOverlay();
             winformsMap1.Overlays.Add(worldMapKitDesktopOverlay);
 
-            ShapeFileFeatureSource featureSource = new ShapeFileFeatureSource(@"..\..\Data\swineflu.shp"); 
+            ShapeFileFeatureSource featureSource = new ShapeFileFeatureSource("../../data/swineflu.shp"); 
 
             HeatLayer heatLayer = new HeatLayer(featureSource);
             //Creates the HeatStyle to set the properties determining the display of the heat map with earth quake data.
