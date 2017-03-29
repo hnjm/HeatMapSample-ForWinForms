@@ -6,6 +6,8 @@ Heat maps is a technique increasingly used in various fields such in biology and
 
 At ThinkGeo, we are taking this concept to GIS and applying it to geographic maps. Heat maps are a great way to give the users a visually compelling representation of the distribution and intensity of geographic phenomenon. 
 
+Please refer to [Wiki](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf) for the details.
+
 ![Screenshot](https://github.com/ThinkGeo/HeatMapSample-ForWinForms/blob/master/ScreenShot.png)
 
 ### Requirements
@@ -19,9 +21,9 @@ Working...
 
 ### Getting Help
 
-[Map Suite Desktop for Winforms Wiki Resources](http://wiki.thinkgeo.com/wiki/map_suite_desktop_edition)
+[Map Suite Desktop for Winforms Wiki Resources](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_winforms)
 
-[Map Suite Desktop for Winforms Product Description](http://thinkgeo.com/map-suite-developer-gis/desktop-edition/)
+[Map Suite Desktop for Winforms Product Description](https://thinkgeo.com/ui-controls#desktop-platforms)
 
 [ThinkGeo Community Site](http://community.thinkgeo.com/)
 
