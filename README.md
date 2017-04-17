@@ -1,4 +1,4 @@
-# Heat Map Sample for WinForms
+# Heat Map Sample
 
 ### Description
 
