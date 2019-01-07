@@ -17,79 +17,24 @@ This sample makes use of the following NuGet Packages
 
 ### About the Code
 ```csharp
-protected override void DrawCore(IEnumerable<Feature> features, GeoCanvas canvas, System.Collections.ObjectModel.Collection<SimpleCandidate> labelsInThisLayer, System.Collections.ObjectModel.Collection<SimpleCandidate> labelsInAllLayers)
-{
-    Bitmap intensityBitmap = null;
-    Bitmap colorBitmap = null;
-    GeoImage geoImage = null;
-    MemoryStream pngStream = null;
+ShapeFileFeatureSource featureSource = new ShapeFileFeatureSource("../../data/swineflu.shp"); 
 
-    try
-    {
-        if (colorPalette.Count != 256)
-        {
-            colorPalette = GetDefaultColorPalette();
-        }
+HeatLayer heatLayer = new HeatLayer(featureSource);
+//Creates the HeatStyle to set the properties determining the display of the heat map with earth quake data.
+//Notice that each point is treated with an intensity depending on the value of the column "other_magn1".
+//So, in addition to the density of points location, the value for each point is also going to be counted into account
+//for the coloring of the map.
+HeatStyle heatStyle = new HeatStyle();
+heatStyle.Alpha = 255;
+heatStyle.PointRadius = 100; 
+heatStyle.PointRadiusUnit = DistanceUnit.Kilometer;
+heatStyle.Alpha = 180;
+heatStyle.PointIntensity = 10; 
+heatStyle.IntensityColumnName = "CONFIRMED";
+heatStyle.IntensityRangeStart = 0;
+heatStyle.IntensityRangeEnd = 638;
 
-        intensityBitmap = new Bitmap(Convert.ToInt32(canvas.Width), Convert.ToInt32(canvas.Height));
-        Graphics Surface = Graphics.FromImage(intensityBitmap);
-        Surface.Clear(Color.Transparent);
-        Surface.Dispose();
-
-        List<HeatPoint> heatPoints = new List<HeatPoint>();
-
-        foreach (Feature feature in features)
-        {
-            if (feature.GetWellKnownType() == WellKnownType.Point)
-            {
-                PointShape pointShape = (PointShape)feature.GetShape();
-                ScreenPointF screenPoint = ExtentHelper.ToScreenCoordinate(canvas.CurrentWorldExtent, pointShape, canvas.Width, canvas.Height);
-
-                double realValue;
-                if (intensityRangeStart != 0 && intensityRangeEnd != 0 && intensityRangeStart != intensityRangeEnd && intensityColumnName != string.Empty)
-                {
-
-
-                    if (intensityRangeStart < intensityRangeEnd)
-                    {
-                        realValue = (255 / (intensityRangeEnd - intensityRangeStart)) * (GetDoubleValue(feature.ColumnValues[intensityColumnName], intensityRangeStart, intensityRangeEnd) - intensityRangeStart);
-                    }
-                    else
-                    {
-                        realValue = (255 / (intensityRangeEnd - intensityRangeStart)) * (intensityRangeEnd - GetDoubleValue(feature.ColumnValues[intensityColumnName], intensityRangeStart, intensityRangeEnd));
-                        
-                    }
-                }
-                else
-                {
-                    realValue = intensity;
-                }
-
-                HeatPoint heatPoint = new HeatPoint(Convert.ToInt32(screenPoint.X), Convert.ToInt32(screenPoint.Y), Convert.ToByte(realValue));
-                heatPoints.Add(heatPoint);
-            }
-        }
-
-        float size = GetPointSize(canvas);
-        
-        intensityBitmap = CreateIntensityMask(intensityBitmap, heatPoints, Convert.ToInt32(size));
-
-        colorBitmap = Colorize(intensityBitmap, (byte)alpha, colorPalette);
-
-        pngStream = new MemoryStream();
-        colorBitmap.Save(pngStream, System.Drawing.Imaging.ImageFormat.Png);
-        geoImage = new GeoImage(pngStream);
-
-        canvas.DrawWorldImageWithoutScaling(geoImage, canvas.CurrentWorldExtent.GetCenterPoint().X, canvas.CurrentWorldExtent.GetCenterPoint().Y, DrawingLevel.LevelOne);
-    }
-    finally
-    {
-        if (intensityBitmap != null) { intensityBitmap.Dispose(); }
-        if (colorBitmap != null) { colorBitmap.Dispose(); }
-        if (geoImage != null) { geoImage.Dispose(); }
-        if (pngStream != null) { pngStream.Dispose(); }
-    }
-}
+heatLayer.HeatStyle = heatStyle;
 ```
 ### Getting Help
 

@@ -8,7 +8,7 @@ using ThinkGeo.MapSuite.Styles;
 using ThinkGeo.MapSuite.WinForms;
 
 
-namespace  HeatMap
+namespace HeatMap
 {
     public partial class TestForm : Form
     {
@@ -19,15 +19,17 @@ namespace  HeatMap
 
         private void TestForm_Load(object sender, EventArgs e)
         {
+            winformsMap1.MapUnit = GeographyUnit.Meter;
+            winformsMap1.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
             // Set the full extent and the background color
-            winformsMap1.CurrentExtent = new RectangleShape(-150,64,-90,16); 
+            winformsMap1.CurrentExtent = new RectangleShape(-16697924, 9349764, -10018754, 1804723);
             winformsMap1.BackgroundOverlay.BackgroundBrush = new GeoSolidBrush(GeoColor.FromArgb(255, 198, 255, 255));
 
-            //WorldMapKit
-            WorldMapKitWmsDesktopOverlay worldMapKitDesktopOverlay = new WorldMapKitWmsDesktopOverlay();
-            winformsMap1.Overlays.Add(worldMapKitDesktopOverlay);
+            // Add ThinkGeoCloudMapsOverlay as basemap
+            ThinkGeoCloudMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudMapsOverlay();
+            winformsMap1.Overlays.Add(thinkGeoCloudMapsOverlay);
 
-            ShapeFileFeatureSource featureSource = new ShapeFileFeatureSource("../../data/swineflu.shp"); 
+            ShapeFileFeatureSource featureSource = new ShapeFileFeatureSource("../../data/swineflu.shp");
 
             HeatLayer heatLayer = new HeatLayer(featureSource);
             //Creates the HeatStyle to set the properties determining the display of the heat map with earth quake data.
@@ -36,11 +38,10 @@ namespace  HeatMap
             //for the coloring of the map.
             HeatStyle heatStyle = new HeatStyle();
             heatStyle.Alpha = 255;
-            heatStyle.PointRadius = 100; 
+            heatStyle.PointRadius = 100;
             heatStyle.PointRadiusUnit = DistanceUnit.Kilometer;
             heatStyle.Alpha = 180;
-            heatStyle.PointIntensity = 10; 
-           
+            heatStyle.PointIntensity = 10;
             heatStyle.IntensityColumnName = "CONFIRMED";
             heatStyle.IntensityRangeStart = 0;
             heatStyle.IntensityRangeEnd = 638;
@@ -51,17 +52,17 @@ namespace  HeatMap
             heatMapOverlay.Layers.Add(heatLayer);
 
             winformsMap1.Overlays.Add("HeatOverlay", heatMapOverlay);
-            
+
 
             winformsMap1.Refresh();
         }
 
-        
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-    
+
     }
 }
