@@ -20,13 +20,17 @@ namespace HeatMap
         private void TestForm_Load(object sender, EventArgs e)
         {
             winformsMap1.MapUnit = GeographyUnit.Meter;
-            winformsMap1.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
+            winformsMap1.ZoomLevelSet = new ThinkGeoCloudMapsZoomLevelSet();
             // Set the full extent and the background color
             winformsMap1.CurrentExtent = new RectangleShape(-16697924, 9349764, -10018754, 1804723);
             winformsMap1.BackgroundOverlay.BackgroundBrush = new GeoSolidBrush(GeoColor.FromArgb(255, 198, 255, 255));
 
-            // Add ThinkGeoCloudMapsOverlay as basemap
-            ThinkGeoCloudMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudMapsOverlay();
+            /*===========================================
+               Backgrounds for this sample are powered by ThinkGeo Cloud Maps and require
+               a Client ID and Secret. These were sent to you via email when you signed up
+               with ThinkGeo, or you can register now at https://cloud.thinkgeo.com.
+            ===========================================*/
+            ThinkGeoCloudRasterMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudRasterMapsOverlay();
             winformsMap1.Overlays.Add(thinkGeoCloudMapsOverlay);
 
             ShapeFileFeatureSource featureSource = new ShapeFileFeatureSource("../../data/swineflu.shp");
@@ -57,12 +61,9 @@ namespace HeatMap
             winformsMap1.Refresh();
         }
 
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
     }
 }
